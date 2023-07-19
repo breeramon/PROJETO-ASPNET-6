@@ -1,0 +1,67 @@
+/* Estilos para a nav-bar */
+.navbar {
+    background-color: #2196F3; /* Cor de fundo da nav-bar no modo claro */
+    color: #fff; /* Cor do texto na nav-bar no modo claro */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    /* Estilo para os links na nav-bar */
+    .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+/* Estilo para os links na nav-bar no modo noturno */
+body.dark-mode .navbar a {
+    color: #000;
+}
+
+
+/* Estilos para o botão de alternar */
+.toggle-mode {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+    .toggle-label i {
+        font-size: 12px;
+    }
+
+/* Estilo para o ícone de lua */
+.fa-moon {
+    color: #000;
+}
+
+/* Estilo para o ícone de sol */
+.fa-sun {
+    color: #ff0;
+}
+
+/* Estilo para o ícone de sol no modo noturno */
+body.dark-mode .fa-sun {
+    color: #f80;
+}
