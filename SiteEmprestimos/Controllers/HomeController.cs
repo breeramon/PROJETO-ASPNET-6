@@ -15,6 +15,14 @@ namespace SiteEmprestimos.Controllers
 
         public IActionResult Index()
         {
+            bool isDarkMode = false;
+            if (Request.Cookies.TryGetValue("darkMode", out var darkModeValue))
+            {
+                bool.TryParse(darkModeValue, out isDarkMode);
+            }
+
+            ViewBag.isDarkMode = isDarkMode;
+            
             return View();
         }
 

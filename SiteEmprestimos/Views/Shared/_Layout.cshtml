@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    bool isDarkMode = ViewBag.IsDarkMode ?? false;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,11 +13,11 @@
     <link rel="stylesheet" href="~/SiteEmprestimos.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.datatables.net/v/dt/dt-1.13.5/datatables.min.css" rel="stylesheet" />
-    <link href="/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 </head>
-<body>
+<body class="@(isDarkMode ? "dark-mode" : "")">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-book-half mx-1"></i>Books Watch</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -35,8 +39,8 @@
                     <div class="toggle-mode">
                         <input type="checkbox" id="mode-switch" class="toggle-checkbox">
                         <label for="mode-switch" class="toggle-label">
-                            <i class="bi bi-brightness-high-fill">Modo Claro</i> <!-- Ícone de lua -->
-                            <i class="bi bi-moon-fill">Modo Escuro</i> <!-- Ícone de sol -->
+                            <i class="bi bi-brightness-high-fill"></i> <!-- Ícone de lua -->
+                            <i class="bi bi-moon-fill"></i> <!-- Ícone de sol -->
                         </label>
                     </div>
                 </div>
@@ -57,6 +61,9 @@
             var modeSwitch = document.getElementById('mode-switch');
             modeSwitch.addEventListener('change', function () {
                 document.body.classList.toggle('dark-mode');
+                var isDarkMode = document.body.classList.contains('dark-mode');
+
+                document.cookie = "darkMode" + isDarkMode + "; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/";
             });
         });
     </script>
